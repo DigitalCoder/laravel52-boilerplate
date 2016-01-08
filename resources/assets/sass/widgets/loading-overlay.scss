@@ -1,0 +1,166 @@
+#cl-loading-overlay {
+  -webkit-animation: overlayFadeOutToNone 0.25s ease-out;
+  -moz-animation: overlayFadeOutToNone 0.25s ease-out;
+  -o-animation: overlayFadeOutToNone 0.25s ease-out;
+  animation: overlayFadeOutToNone 0.25s ease-out;
+  display: none;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+
+  &.active{
+    display: block;
+    -webkit-animation: overlayFadeInFromNone 0.25s ease-out;
+    -moz-animation: overlayFadeInFromNone 0.25s ease-out;
+    -o-animation: overlayFadeInFromNone 0.25s ease-out;
+    animation: overlayFadeInFromNone 0.25s ease-out;
+  }
+
+  .glyphicon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+    display: block;
+    font-size: 32px;
+  }
+  .glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+}
+
+@-webkit-keyframes overlayFadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes overlayFadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes overlayFadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes overlayFadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes overlayFadeOutToNone {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes overlayFadeOutToNone {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes overlayFadeOutToNone {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes overlayFadeOutToNone {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+body.cl-loading-overlay-active{
+  overflow: hidden;
+}

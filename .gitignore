@@ -1,0 +1,15 @@
+/bower_components
+/node_modules
+/public/build
+/public/css
+/public/js
+/public/images
+/public/fonts
+/public/favicon*
+/public/*.png
+/public/manifest.json
+public/*.svg
+/vendor
+Homestead.yaml
+Homestead.json
+.env

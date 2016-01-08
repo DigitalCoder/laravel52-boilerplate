@@ -1,0 +1,85 @@
+@import "lib/_layout";
+@import "lib/_fonts";
+@import "lib/_colors";
+@import "lib/_mixins";
+
+.cl-print-button{
+  @include cl-grey-button;
+  @include border-radius(10px);
+  color:#fff;
+  text-transform: uppercase;
+  font-size: $font-size-default;
+  border: none;
+  width: 90px;
+  padding: 5px;
+  &:hover {
+    background-color: lighten($grey, 10%);
+  }
+  &.disabled, &:disabled {
+    background-color: $light-grey;
+  }
+}
+
+@media print {
+
+  /**
+   * General fixes
+   */
+  html, body {
+    height: auto;
+  }
+
+  #header {
+    .logo {
+      margin-top: 20px;
+    }
+    .logo:after {
+      content: url($logo-image-print);
+    }
+    .bottom-border {
+      display: none;
+    }
+  }
+
+  .page-header,
+  .page-content {
+    margin-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .page-header {
+    padding-top: 10px;
+    h1 {
+      font-size: $font-size-xlarge;
+      text-align: center;
+    }
+    h4 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  .row, .container-fluid {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Remove link URL's added by Bootstrap */
+  a[href]:after {
+    content: none !important;
+  }
+
+  .cl-print-only {
+    display: block;
+  }
+  .cl-no-print {
+    display: none;
+  }
+}
+

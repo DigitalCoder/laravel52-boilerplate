@@ -1,0 +1,32 @@
+{
+  "name": "Laravel5Boilerplate",
+  "authors": [
+    "Rick Sharp <rick@causelabs.com>"
+  ],
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootbox.js": "bootbox#~4.4.0",
+    "jquery": "2.1.*",
+    "bootstrap": "3.3.*",
+    "font-awesome": "~4.4.0"
+  },
+  "devDependencies": {},
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "bootstrap": "3.3.*"
+  }
+}
