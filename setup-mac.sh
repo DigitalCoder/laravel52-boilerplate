@@ -77,16 +77,16 @@ else
 fi
 
 # If node_module already exists, delete it
-#if [ -d "./node_modules" ]; then
-#	printf "Deleting existing node_modules directory\n"
-#	rm -rf ./node_modules
-#fi
+if [ -d "./node_modules" ]; then
+	printf "Deleting existing node_modules directory\n"
+	rm -rf ./node_modules
+fi
 
 # Install the site files
 printf "Installing site files.\n"
 php composer.phar selfupdate
 php composer.phar install
-#npm install
+npm install
 bower install --allow-root
 
 # Set up the .env file, if necessary
