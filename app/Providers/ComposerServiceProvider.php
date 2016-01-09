@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Category;
-use App\Models\Program;
 use App\Models\RankingSubmission;
 use Auth;
 use Illuminate\Http\Request;
@@ -24,27 +23,7 @@ class ComposerServiceProvider extends ServiceProvider
             $propertyId = env('GOOGLE_ANALYTICS_PROPERTY', null);
             $view->with('analyticsPropertyId', $propertyId);
 
-            // Get details for this user
-            $user = Auth::user();
-            $userType = null;
-            $userId = null;
-            if ($user) {
-                $userId = $user->id;
-                $userType = ucwords($user->type);
-            }
-            $view->with('analyticsUserId', $userId);
-            $view->with('analyticsUserType', $userType);
-
-            // Get details for this program
-            $programId = null;
-            $programName = null;
-            $program = Program::current();
-            if ($program) {
-                $programId = $program->id;
-                $programName = $program->name;
-            }
-            $view->with('analyticsProgramId', $programId);
-            $view->with('analyticsProgramName', $programName);
+            // Set custom dimensions here
 
         });
     }
