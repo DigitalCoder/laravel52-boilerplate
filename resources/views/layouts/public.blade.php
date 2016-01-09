@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Village Capital {{ isset($title) ? ' - '.$title : '' }}</title>
+        <title>Site Title Here {{ isset($title) ? ' - '.$title : '' }}</title>
         <link rel="stylesheet" href="{{ cdn(elixir('css/vendor.css')) }}">
         <link rel="stylesheet" href="{{ cdn(elixir('css/app.css')) }}">
         @include('layouts.partials.favicons')
