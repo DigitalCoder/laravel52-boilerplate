@@ -14,7 +14,8 @@ Once you have downloaded this package, take the following steps:
 
 1. Update the composer.json file to provide the proper package name, description, license, authors, etc.
 1. Update the bower.json file to provide proper package name, authors, etc.
-1. Replace any instances of "<sitename>" in this README with a site name/url to use when accessing the test site.
+1. Replace any instances of "{sitename}" in this README with a site name/url to use when accessing the test site.
+1. Update the SITE_URL varilable value in setup-mac.sh to an appropriate URL.
 1. Remove this section of the README
 1. Continue with the Installation section below.
 
@@ -34,6 +35,11 @@ Once you have downloaded this package, take the following steps:
 4. If you have a Mac:
   1. Run `sudo ./setup-mac.sh`
   2. Skip to the **Using the Development Server** section
+    *Note: If there's a problem and you need to re-run this script, you MAY need to run these commands:*
+    ```
+    vagrant destroy (possibly with sudo)
+    sudo rm -rf /var/root/VirtualBox\ VMs/{VM_NAME} (Replacing the VM_NAME with the actual VM name)
+    ```
 
 5. Install Dependencies - Part 2
   * Bower - `npm install -g bower`
@@ -207,7 +213,7 @@ It is recommended that the deployment script include the following commands:
 php composer.phar selfupdate
 php composer.phar install
 php composer.phar update
-npm install
+npm install --production
 bower install
 bower prune
 node_modules/gulp/bin/gulp.js --production

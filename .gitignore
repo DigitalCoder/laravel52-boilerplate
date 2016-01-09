@@ -13,3 +13,4 @@ public/*.svg
 Homestead.yaml
 Homestead.json
 .env
+.vagrant

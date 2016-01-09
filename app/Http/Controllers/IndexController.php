@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -9,7 +9,7 @@ use DB;
 use Illuminate\Http\Request;
 use Session;
 
-class ContentController extends Controller
+class IndexController extends Controller
 {
 	public function getIndex()
 	{
