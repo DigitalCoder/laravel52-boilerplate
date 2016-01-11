@@ -18,7 +18,7 @@ $(document).ready(function () {
             bootbox.alert("An error occurred while saving your data.");
         });
 
-    $(".cl-ajax-field").each(function () {
+    $(".cl-js-ajax-field").each(function () {
         var field = $(this),
             fieldName = $(this).attr('name');
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
             field.data('cl-original-value', $("input[type=radio][name=" + fieldName + "]:checked").val());
             $("input[type=radio][name=" + fieldName + "]")
                 .on('click keyup', function () {
-                    var element = $("input.cl-ajax-field[name=" + fieldName + "]"), //get the first one, since that holds the rest of the data
+                    var element = $("input.cl-js-ajax-field[name=" + fieldName + "]"), //get the first one, since that holds the rest of the data
                         value = $("input[type=radio][name=" + fieldName + "]:checked").val();
                     window.clSendAjaxField(element, value);
                 });
@@ -55,7 +55,7 @@ $(document).ready(function () {
         }
     });
 
-    $("body").on('click', ".cl-delete-button-ajax", function () {
+    $("body").on('click', ".cl-js-delete-button-ajax", function () {
         var id = $(this).data('id'),
             description = $(this).data('description'),
             targetUrl = $(this).data('url'),

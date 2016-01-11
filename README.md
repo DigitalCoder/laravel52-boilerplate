@@ -178,23 +178,45 @@ It's recommended to use [Real Favicon Generator](http://realfavicongenerator.net
 
 
 # Special Classes
-- **.cl-delete-button-form**: Use this on delete buttons in forms. This will issue a confirmation prompt before proceeding.
-- **.cl-link-button**: Any buttons with the class "cl-link-button" will function as a link. The URL should be contained in data-href.
-- **.cl-link-button-new**: Same as above, but opens in a new tab.
-- **.cl-select-on-focus**: Any form field with this class will automatically select all contents on focus or click.
-- **.cl-ajax-field**: Any field containing this class will automatically be saved via AJAX upon blur, assuming the following prerequisites are met:
+- **.cl-js-delete-button-form**: Use this on delete buttons in forms. This will issue a confirmation prompt before proceeding.
+- **.cl-js-link-button**: Any buttons with the class "cl-js-link-button" will function as a link. The URL should be contained in data-href.
+- **.cl-js-link-button-new**: Same as above, but opens in a new tab.
+- **.cl-js-select-on-focus**: Any form field with this class will automatically select all contents on focus or click.
+- **.cl-js-ajax-field**: Any field containing this class will automatically be saved via AJAX upon blur, assuming the following prerequisites are met:
     - The CSRF Token must be stored in a variable on the page: `var csrfToken="{!! csrf_token() !!}";`
     - The field must have a data-url attribute containing the URL to which it should post: `data-url="{{ route('admin-workshop-post', ['programId' => $programId, 'id' => $workshop->id]) }}"`
-- **.cl-delete-button-ajax**: Any button containing this class will automatically delete the record via AJAX after confirming deletion, assuming the following prerequisites are met:
+- **.cl-js-delete-button-ajax**: Any button containing this class will automatically delete the record via AJAX after confirming deletion, assuming the following prerequisites are met:
     - The CSRF Token must be stored in a variable on the page: `var csrfToken="{!! csrf_token() !!}";`
     - The field must have a data-url attribute containing the URL to which it should post: `data-url="{{ route('admin-workshop-post', ['programId' => $programId, 'id' => $workshop->id]) }}"`
     - The field must have a data-id attribute containing the record id
     - The field must have a data-description attribute containing the type of record being deleted.
 - **.cl-print-only**: The element is only displayed when printing
 - **.cl-no-print**: The element is hidden when printing.
-- **.cl-print-button: The element is styled as a print button, and will open the print dialog when clicked.
-- **.cl-js-\***: Any CSS class preceded with this code is used by the JS layer to add client-side behavior. Be careful before changing this class.
+- **.cl-js-print-button + .cl-print-button**: The element is styled as a print button (.cl-print-button), and will open the print dialog when clicked (.cl-js-print-button).
 - **.cl-js-no-change**: Any field with this CSS class will not trigger a form change.
+
+### Suggested CSS Naming Convention
+We are using a few basic namespacing rules to name our CSS class, depending on a number of factors. The main format would look like:
+```
+.[project_initials]-[js|u|is_...|has_...|c|qa]?-[block-name-or-context]__[child_block]--[modifier]
+```
+For instance, if we are designing CSS rules for a project named "Foo Project", some CSS classes could be:
+- **fp-js-validated-form**: A form that will be validated with JavaScript. Please note that classes with the **js** particle should not be used for styling.
+- **fp-u-margin-top--large**: This element will have a margin top applied. Please note the modifier **--large** and the *u* particle that means "utility".
+- **fp-is-active**: CSS classes that depend on a particular condition should use the particle **is_whatever-state-or-condition**
+- **fp-qa-artificial-hook**: This hook is used solely for QA purposes and does not affect the interface's behavior nor appearance.
+- **fp-c-component_name**: This is a standalone component that can be reused all over the application without interferences with other UI elements.
+- **fp-feedback-container__comment--small**: Any comment within a feedback container, displayed as small in the current context.
+
+While this naming convention is very opinionated and the benefits / drawbacks of applying to its full extent are arguable, we recommend to 
+stick at least to the minimum form `initials-purpose-name`, like **cl-js-print-button** or **cl-qa-submit-button**. This will:
+
+1. Prevent conflicts and collisions with third-party libraries.
+1. Explicitly state the purpose of the class: **js** for JavaScript hooks, **qa** for QA hooks, **u** for application-wide utility classes, and so forth. 
+1. Isolate components in our own interfaces, thus avoiding collisions (again!).
+
+[More info](http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/)
+
 
 # Database Seeding
 There are classes set up to handle seeding both "real" data and "test" data. Real data is all data that is required for both production and test environments, such as an admin user or a list of categories. Test data would only be used on a staging or development server.

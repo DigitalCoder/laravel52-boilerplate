@@ -3,13 +3,13 @@
 /*global $, bootbox, window */
 
 /*
- * Any buttons with the class "cl-link-button" will function as a link. The URL should be contained in data-href.
+ * Any buttons with the class "cl-js-link-button" will function as a link. The URL should be contained in data-href.
  * Using the class "cl-link-new" will open the link in a new tab.
  */
 function initLinkButtons() {
     "use strict";
     //opens in the same window/tab
-    $(".cl-link-button").on('click', function (e) {
+    $(".cl-js-link-button").on('click', function (e) {
         if ($(this).attr('data-href')) {
             location.href = $(this).data('href');
         }
@@ -28,7 +28,7 @@ function initLinkButtons() {
     });
 
     //opens in a new window/tab
-    $(".cl-link-button-new").on('click', function (e) {
+    $(".cl-js-link-button-new").on('click', function (e) {
         var win;
         if ($(this).attr('data-href')) {
             win = window.open($(this).data('href'), '_blank');
@@ -39,7 +39,7 @@ function initLinkButtons() {
     });
 
     //opens the print dialog
-    $(".cl-print-button").on('click', function () {
+    $(".cl-js-print-button").on('click', function () {
         window.print();
         return false;
     });

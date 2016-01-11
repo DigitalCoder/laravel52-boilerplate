@@ -151,7 +151,7 @@
         }
 
         $forms.each(function () {
-            if (!$(this).hasClass('cl-delete-button-form')) {
+            if (!$(this).hasClass('cl-js-delete-button-form')) {
                 checkFormIsValid($(this));
             }
         });
@@ -184,10 +184,10 @@
     }
 
     /**
-     * Intercept the click of any delete buttons in a form with class "cl-delete-button-form", and confirm deletion before proceeding.
+     * Intercept the click of any delete buttons in a form with class "cl-js-delete-button-form", and confirm deletion before proceeding.
      */
     function initConfirmDeleteForms() {
-        $(".cl-delete-button-form").on('submit', function (e) {
+        $(".cl-js-delete-button-form").on('submit', function (e) {
             var form = $(this),
                 description = $(this).data('description');
             if (form.data("submission-confirmed") === "1") {
@@ -228,7 +228,7 @@
      * Any input with "cl-select-on-focus" class will automatically select the entire contents on focus or click
      */
     function initSelectOnFocus() {
-        $(".cl-select-on-focus").on('focus click', function () {
+        $(".cl-js-select-on-focus").on('focus click', function () {
             $(this).select();
         });
     }

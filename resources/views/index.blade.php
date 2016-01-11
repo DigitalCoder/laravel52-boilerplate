@@ -24,8 +24,8 @@
 <button class="btn" id="show-loading-overlay">Show Overlay</button>
 
 <h3>Link Buttons</h3>
-<button class="btn" class="cl-link-button" data-href="http://www.cnn.com">Open CNN in this tab</button>
-<button class="btn" class="cl-link-button-new" data-href="http://www.cnn.com">Open CNN in a new tab</button>
+<button class="btn" class="cl-js-link-button" data-href="http://www.cnn.com">Open CNN in this tab</button>
+<button class="btn" class="cl-js-link-button-new" data-href="http://www.cnn.com">Open CNN in a new tab</button>
 
 <p>&nbsp;</p>
 @endsection
