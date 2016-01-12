@@ -57,6 +57,7 @@ fi
 
 # Repalce values in the Homestead.yaml file
 printf "Updating Homestead configuration file\n"
+cp -f Homestead.yaml.template Homestead.yaml
 PATTERN='{{CURRENT_DIR}}'
 REPLACE=$(echo $CURRENT_DIR | sed -e 's/[\/&]/\\&/g')
 sed -i '' 's/'$PATTERN'/'$REPLACE'/g' Homestead.yaml
@@ -88,6 +89,7 @@ php composer.phar selfupdate
 php composer.phar install
 npm install
 bower install --allow-root
+ln -s ./node_modules/gulp/bin/gulp.js gulp_local
 
 # Set up the .env file, if necessary
 if [ -f ./.env ]; then
@@ -122,14 +124,12 @@ vagrant up
 printf "Populating the database\n"
 echo "php site/artisan migrate:refresh && php site/artisan db:seed && exit" | vagrant ssh
 
-# Shut down the VM so that it can be started by the current user instead of root
-printf "Shutting down the virutal machine.\n"
-vagrant suspend
-#echo $THIS_USER_ID > .vagrant/machines/default/virtualbox/creator_uid
-#chown -R $THIS_USER_ID .vagrant
+# Run Gulp
+./gulp_local
 
-printf "\nInstallation complete\n\n"
-printf "To start your development server, type: ${COLOR_BLUE}vagrant up${COLOR_NORMAL}\n"
-printf "You can then visit your site at ${UNDERLINE}http://$SITE_URL.app${COLOR_NORMAL}\n"
-printf "To stop the server, run ${COLOR_BLUE}vagrant suspend${COLOR_NORMAL}\n"
+printf "\n***Installation complete***\n\n"
+printf "Your server should be up and running."
+printf "You can visit your site at ${UNDERLINE}http://$SITE_URL.app${COLOR_NORMAL}\n"
+printf "To stop the development server, run ${COLOR_BLUE}vagrant suspend${COLOR_NORMAL}\n"
+printf "To start the development server again later, type: ${COLOR_BLUE}vagrant up${COLOR_NORMAL}\n"
 exit 0

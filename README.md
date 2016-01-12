@@ -28,12 +28,22 @@ Once you have downloaded this package, take the following steps:
   * Virtual Box - [Download it here.](https://www.virtualbox.org/wiki/Downloads)
   * Vagrant [Download it here.](http://www.vagrantup.com/downloads.html)
 
+  You will also need an SSH key on your machine. To check if you have generated a key, enter this command. You should see a file response.
+
+  `ls ~/.ssh/id_rsa`
+
+  If no file is found, you will need to generate a key. To do so, enter this command and follow the instructions:
+
+  `ssh-keygen -t rsa`
+  
+  You may want to leave the password blank if you don't plan to use the key for any external servers.
+
 2. Check out this repository.
 
 3. Open Terminal or a command prompt, and navigate to the root directory of the site.
 
 4. If you have a Mac:
-  1. Run `sudo ./setup-mac.sh`
+  1. Run `./setup-mac.sh`
   2. Skip to the **Using the Development Server** section
     *Note: If there's a problem and you need to re-run this script, you MAY need to run these commands:*
     ```
@@ -62,6 +72,7 @@ Once you have downloaded this package, take the following steps:
   php composer.phar install
   npm install
   bower install
+  ln -s ./node_modules/gulp/bin/gulp.js gulp_local
   ```
 
 8. Set the configuration file.
