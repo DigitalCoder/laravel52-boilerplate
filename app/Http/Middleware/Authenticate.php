@@ -24,6 +24,13 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
+        $user = Auth::user();
+        if ($user) {
+            if ($user->status !== 'active') {
+                Auth::guard($guard)->logout();
+                return redirect()->guest('login');
+            }
+        }
 
         return $next($request);
     }

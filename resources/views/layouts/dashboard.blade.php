@@ -14,7 +14,8 @@
     </head>
     <body class="public-page route-{{Route::currentRouteName()}}">
         <div id="header">
-            <h1>Public Page Template</h1>
+            <h1>Dashboard Page Template</h1>
+            <div class="pull-right logout-link-container"><a href="/logout">Log Out</a></div>
         </div>
 
         <div class="page-content">

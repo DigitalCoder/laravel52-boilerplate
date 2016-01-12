@@ -120,7 +120,7 @@ vagrant up
 
 # Populate the database
 printf "Populating the database\n"
-echo "php site/artisan migrate && php site/artisan db:seed && exit" | vagrant ssh
+echo "php site/artisan migrate:refresh && php site/artisan db:seed && exit" | vagrant ssh
 
 # Shut down the VM so that it can be started by the current user instead of root
 printf "Shutting down the virutal machine.\n"

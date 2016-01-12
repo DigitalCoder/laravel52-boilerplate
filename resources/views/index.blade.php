@@ -9,6 +9,9 @@
 <h2>Feature Samples</h2>
 <p>Below are some samples of the features included in this package</p>
 
+<h3>Authentication</h3>
+<p><a href="/login">Click here</a> to log in.</p>
+
 <h3>Bootbox</h3>
 <button class="btn" id="sample-bootbox-alert">Alert</button>
 <button class="btn" id="sample-bootbox-confirm">Confirmation</button>
