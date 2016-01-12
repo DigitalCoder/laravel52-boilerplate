@@ -1,29 +1,25 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', ['as' => 'home', 'uses' => 'IndexController@getIndex']);
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
+/***** Public Pages *****/
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/', ['as' => 'home', 'uses' => 'IndexController@getIndex']);
+
+    // Built-in authentication routes
+    Route::auth();
+});
+
+/***** Admin Pages *****/
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'usertype:admin']], function () {
+    Route::get('/', ['as' => 'admin-home', 'uses' => 'Admin\IndexController@index']);
+});
+
+/***** User Dashboard Pages *****/
+Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'usertype:user']], function () {
+    Route::get('/', ['as' => 'user-dashboard', 'uses' => 'Dashboard\IndexController@index']);
+});
+
+/***** Other Password Protected Pages *****/
+Route::group(['middleware' => ['web', 'auth']], function () {
+    // Redirect to the correct home page by user type
+    Route::get('home', 'Auth\AuthController@homeRedirect');
 });

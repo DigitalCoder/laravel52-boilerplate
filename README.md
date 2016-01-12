@@ -38,7 +38,7 @@ Once you have downloaded this package, take the following steps:
     *Note: If there's a problem and you need to re-run this script, you MAY need to run these commands:*
     ```
     vagrant destroy (possibly with sudo)
-    sudo rm -rf /var/root/VirtualBox\ VMs/{VM_NAME} (Replacing the VM_NAME with the actual VM name)
+    sudo rm -rf ~/VirtualBox\ VMs/{VM_NAME} (Replacing the VM_NAME with the actual VM name)
     ```
 
 5. Install Dependencies - Part 2
@@ -128,6 +128,15 @@ following is a breakdown of the functions that Gulp performs:
 # Included Packages
 The following packages are included with this installation by default:
 
+### Authentication and User Types
+The Laravel Auth module automatically provides functionality for login, logout, and password reset. The included database migrations automatically 
+create the users and user_logins tables. There is also support for user types. The default user types are "admin" and "user", but these can be changed in the
+users table migration. A successful login redirects to the appropriate location based on user type. This can be modified in App\Http\Controllers\Auth\AuthController@homeRedirect().
+
+For testing, two user accounts are created:
+- Admin: admin@test.com / admin
+- User: user@test.com / user
+
 ### JavaScript
 - [jQuery](https://jquery.org/)
 - [Twitter Bootstrap](http://getbootstrap.com)
@@ -136,6 +145,10 @@ The following packages are included with this installation by default:
 
 ### Debugbar
 The Laravel debugbar is useful in development to show statistics on queries, vews, etc. The bar can be disabled by changing APP_DEBUG to false in .env.
+
+### Traits
+The following reusable traits have been created:
+- App\Traits\HasStatus - Adds support for a "status" field to an Eloquent model.
 
 # Added Functionality
 The following functionality has been added by default:
