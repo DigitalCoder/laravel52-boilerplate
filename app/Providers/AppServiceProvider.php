@@ -14,6 +14,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Register development packages
+        if ($this->app->environment('local')) {
+            // register the service provider
+            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+
+            // register an alias
+            $this->app->booting(function () {
+                $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+                $loader->alias('Debugbar', 'Barryvdh\Debugbar\Facade');
+            });
+        }
+
+        // Register Additional Blade Directives
+        
         // Dates
         Blade::directive('datetime', function ($expression) {
             return "<?php echo with{$expression}->format('m/d/Y H:i'); ?>";

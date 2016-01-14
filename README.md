@@ -291,7 +291,7 @@ $DEPLOYHOST:$DEPLOYPATH
 ```
 cd /var/www/{SiteDirectory}
 php composer.phar dump-autoload
-php artisan migrate
+php artisan migrate --force
 php artisan route:clear
 php artisan route:cache
 php artisan cache:clear

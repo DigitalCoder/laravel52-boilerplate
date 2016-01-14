@@ -160,7 +160,6 @@ return [
         /*
          * Third-party Service Providers...
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
     ],
