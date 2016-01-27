@@ -41,6 +41,7 @@
                     </form>
                 </div>
             </div>
+            <a href="{{url('login')}}"><i class="fa fa-arrow-left"></i> Back to log in page</a>
         </div>
     </div>
 </div>
