@@ -4,9 +4,7 @@
 # Configures the development server settings for this site #
 ############################################################
 
-# Set this variable:
-
-# Set a URL for the local dev environment for this site. This will have ".app appended", so don't add a tld.
+# Set a URL for the local dev environment for this site. This will have ".app" appended, so don't add a TLD.
 SITE_URL="mysite"
 
 ## Do not change below this line ##

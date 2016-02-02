@@ -80,9 +80,9 @@ $(document).ready(function () {
                                 window.clDeleteCallback(id);
                             }
                         } else {
-                            bootbox.alert("An error occurred while deleting this " + description + (data.message
-                                ? ': ' + data.message + '.'
-                                : '.'));
+                            bootbox.alert("An error occurred while deleting this " + description + (data.message ?
+                                ': ' + data.message + '.' :
+                                '.'));
                         }
                     }
                 });
@@ -124,9 +124,9 @@ window.clSendAjaxField = function (element, value) {
             if (data.status && (data.status === 'success')) {
                 element.data('cl-original-value', value);
             } else {
-                bootbox.alert("An error occurred while saving this change." + (data.message
-                    ? ': ' + data.message + '.'
-                    : '.'));
+                bootbox.alert("An error occurred while saving this change." + (data.message ?
+                    ': ' + data.message + '.' :
+                    '.'));
                 element.val(element.data('cl-original-value'));
             }
             relatedElements

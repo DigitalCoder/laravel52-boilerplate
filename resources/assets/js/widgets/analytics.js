@@ -16,7 +16,7 @@ $(document).ready(function () {
     "use strict";
 
     // Put code here to attach listeners to send specific events.
-    /** Exmaple
+    /** Example
     * $(".cl-sponsor-badge a").on('click', function () {
     *    clSendAnalyticsEvent("Program Tools", "Sponsor", $(this).attr("title"), $(this).data("id"));
     *});
